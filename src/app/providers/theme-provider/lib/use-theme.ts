@@ -1,7 +1,8 @@
-import { THEME_LOCAL_STORAGE_KEY } from '@/constants/theme'
-import { ThemeContext } from '@/contexts/theme/theme-context'
-import { Theme } from '@/types/theme/theme.enum'
+import { THEME_LOCAL_STORAGE_KEY } from '@/shared/constants/theme'
+import { ThemeContext } from '@/app/providers/theme-provider/lib/theme-context'
+
 import { useContext } from 'react'
+import { Theme } from '@/shared/types/theme/theme.enum'
 
 interface IUseThemeReturn {
 	theme: Theme

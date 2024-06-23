@@ -1,6 +1,6 @@
+import { className } from '@/shared/lib/className/className'
 import './styles/index.scss'
-import { useTheme } from './hooks/theme/use-theme'
-import { className } from './utils/className/className'
+import { useTheme } from './providers/theme-provider'
 
 export const App = () => {
 	const { theme, toggleTheme } = useTheme()

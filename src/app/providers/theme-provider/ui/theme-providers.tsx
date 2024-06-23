@@ -1,6 +1,7 @@
-import { THEME_LOCAL_STORAGE_KEY } from '@/constants/theme'
-import { ThemeContext } from '@/contexts/theme/theme-context'
-import { Theme } from '@/types/theme/theme.enum'
+import { THEME_LOCAL_STORAGE_KEY } from '@/shared/constants/theme'
+import { ThemeContext } from '@/app/providers/theme-provider/lib/theme-context'
+import { Theme } from '@/shared/types/theme/theme.enum'
+
 import { FC, PropsWithChildren, useMemo, useState } from 'react'
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {

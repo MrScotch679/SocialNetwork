@@ -25,16 +25,12 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"],
-			"types/*": ["src/types/*"],
-			"assets/*": ["src/assets/*"],
-			"components/*": ["src/components/*"],
-			"contexts/*": ["src/contexts/*"],
+			"app/*": ["src/app/*"],
+			"entities/*": ["src/entities/*"],
+			"features/*": ["src/features/*"],
 			"pages/*": ["src/pages/*"],
-			"styles/*": ["src/styles/*"],
-			"providers/*": ["src/providers/*"],
-			"constants/*": ["src/constants/*"],
-			"hooks/*": ["src/hooks/*"],
-			"utils/*": ["src/utils/*"]
+			"shared/*": ["src/shared/*"],
+			"widgets/*": ["src/widgets/*"]
 		}
 	},
 	"include": ["src"]
