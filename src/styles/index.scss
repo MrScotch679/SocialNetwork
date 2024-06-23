@@ -1,0 +1,12 @@
+@import './variables/global.scss';
+@import './normalize.scss';
+@import './themes/dark.scss';
+@import './themes/light.scss';
+
+.app {
+	height: 100vh;
+
+	font: var(--font-m);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}

@@ -1,0 +1,12 @@
+@import '../fonts/roboto.scss';
+
+:root {
+	--font-family: 'Roboto', sans-serif;
+	--font-line-height: 1.5;
+
+	--font-size-medium: 1.6rem;
+	--font-m: var(--font-size-medium) / var(--font-line-height) var(--font-family);
+
+	--font-size-large: 2rem;
+	--font-l: var(--font-size-large) / var(--font-line-height) var(--font-family);
+}
