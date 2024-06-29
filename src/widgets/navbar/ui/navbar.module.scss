@@ -1,0 +1,8 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	height: var(--navbar-height);
+	width: 100%;
+	background-color: var(--inverse-background-color);
+}
