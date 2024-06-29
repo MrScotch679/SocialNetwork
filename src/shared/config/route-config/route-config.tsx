@@ -4,14 +4,15 @@ import { routePath } from './route-path'
 
 import { Main } from '@/pages/main'
 import { About } from '@/pages/about'
+import { Layout } from '@/widgets/layout'
 
 export const routeConfig = createBrowserRouter([
 	{
-		path: routePath[AppRoute.MAIN],
-		element: <Main />,
-	},
-	{
-		path: routePath[AppRoute.ABOUT],
-		element: <About />,
+		path: routePath[AppRoute.ROOT],
+		element: <Layout />,
+		children: [
+			{ path: routePath[AppRoute.MAIN], element: <Main /> },
+			{ path: routePath[AppRoute.ABOUT], element: <About /> },
+		],
 	},
 ])
