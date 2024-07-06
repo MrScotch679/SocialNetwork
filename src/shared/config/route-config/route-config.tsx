@@ -10,9 +10,19 @@ export const routeConfig = createBrowserRouter([
 	{
 		path: routePath[AppRoute.ROOT],
 		element: <Layout />,
+		errorElement: <div>ERROR</div>,
+
 		children: [
-			{ path: routePath[AppRoute.MAIN], element: <Main /> },
-			{ path: routePath[AppRoute.ABOUT], element: <About /> },
+			{
+				path: routePath[AppRoute.MAIN],
+				element: <Main />,
+				errorElement: <div>ERROR</div>,
+			},
+			{
+				path: routePath[AppRoute.ABOUT],
+				element: <About />,
+				errorElement: <div>ERROR</div>,
+			},
 		],
 	},
 ])
