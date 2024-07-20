@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, FC, PropsWithChildren, memo } from 'react'
 import styles from './button.module.scss'
 import { className } from '@/shared/lib/className/className'
 
-enum ButtonMode {
+export enum ButtonMode {
 	CLEAR = 'clear',
 }
 
