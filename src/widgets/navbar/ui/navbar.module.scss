@@ -1,6 +1,14 @@
 .navbar {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	padding: 20px;
+
 	background-color: var(--inverse-background-color);
+	transition: all var(--traslation-duration);
+
+	.platformSettings {
+		display: flex;
+		gap: 20px;
+	}
 }
