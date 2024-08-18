@@ -1,6 +1,10 @@
 .button {
-	height: 50px;
-	width: 210px;
+	height: 30px;
+	padding: 0 10px;
+
+	transition: all var(--traslation-duration);
+	border-radius: 25px;
+
 	background-color: var(--inverse-background-color);
 }
 
@@ -11,5 +15,10 @@
 	background-color: transparent;
 	outline: none;
 	height: 40px;
+	background-color: var(--inverse-background-color);
+}
+
+.primary {
+	color: var(--text-color);
 	background-color: var(--inverse-background-color);
 }

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button, ButtonMode } from './button'
+import { Button } from './button'
 import { Theme } from '@/shared/types/theme/theme.enum'
+import { ButtonMode } from './button.types'
 
 const meta: Meta<typeof Button> = {
 	title: 'shared/Button',
