@@ -1,0 +1,14 @@
+.sidebar {
+	display: flex;
+	height: 100%;
+	padding: 20px;
+
+	width: var(--sidebar-collapsed-width);
+	background-color: var(--inverse-background-color);
+
+	transition: all var(--traslation-duration);
+
+	&:hover {
+		width: var(--sidebar-width);
+	}
+}
