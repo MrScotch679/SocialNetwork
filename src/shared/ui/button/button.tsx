@@ -1,4 +1,10 @@
-import { ButtonHTMLAttributes, FC, PropsWithChildren, memo } from 'react'
+import {
+	ButtonHTMLAttributes,
+	FC,
+	PropsWithChildren,
+	memo,
+	useMemo,
+} from 'react'
 
 import styles from './button.module.scss'
 import { className } from '@/shared/lib/className/className'
@@ -11,13 +17,27 @@ interface ButtonProps
 }
 
 export const Button: FC<ButtonProps> = memo(props => {
-	const { children, mode = ButtonMode.CLEAR, ...restProps } = props
+	const {
+		children,
+		mode = ButtonMode.CLEAR,
+		className: additionalClassName,
+		...restProps
+	} = props
+
+	const buttonClasses = useMemo(
+		() =>
+			className(
+				styles.button,
+				{
+					[additionalClassName as string]: !!additionalClassName,
+				},
+				[styles[mode]]
+			),
+		[]
+	)
 
 	return (
-		<button
-			className={className(styles.button, undefined, [styles[mode]])}
-			{...restProps}
-		>
+		<button className={buttonClasses} {...restProps}>
 			{children}
 		</button>
 	)
