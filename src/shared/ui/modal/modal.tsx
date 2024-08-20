@@ -57,6 +57,6 @@ export const Modal: FC<ModalProps> = memo(props => {
 
 	return createPortal(
 		modalComponent,
-		document?.getElementById('modal-root') as HTMLElement
+		document?.getElementsByClassName('app')[0] as HTMLElement
 	)
 })
