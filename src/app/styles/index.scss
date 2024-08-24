@@ -11,4 +11,5 @@
 	font: var(--font-m);
 	color: var(--text-color);
 	background-color: var(--background-color);
+	transition: all var(--traslation-duration);
 }

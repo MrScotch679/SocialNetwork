@@ -5,6 +5,7 @@
 	border-radius: 25px;
 
 	background-color: var(--inverse-background-color);
+	transition: all var(--traslation-duration);
 }
 
 .clear {
