@@ -1,3 +1,25 @@
+@keyframes modalFadeIn {
+	from {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes modalFadeOut {
+	from {
+		transform: scale(1);
+		opacity: 1;
+	}
+	to {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+}
+
 .modalOverlay {
 	position: fixed;
 	top: 0;
@@ -12,13 +34,16 @@
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
 	padding: 10px;
 	max-width: 90vw;
 	max-height: 90vh;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 	z-index: 3;
 	background-color: var(--background-color);
+
+	opacity: 0;
+	visibility: hidden;
 }
 
 .closeButton {
@@ -31,11 +56,14 @@
 .open {
 	opacity: 1;
 	visibility: visible;
-	transform: translate(-50%, -50%);
+	transform: translate(50%, -50%);
+
+	animation: modalFadeIn 0.2s ease forwards;
 }
 
 .close {
 	opacity: 0;
 	visibility: hidden;
-	transform: translate(-50%, -60%);
+
+	animation: modalFadeOut 0.2s ease forwards;
 }
