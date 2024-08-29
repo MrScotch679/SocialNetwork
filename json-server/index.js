@@ -19,6 +19,21 @@ server.get('/echo', (req, res) => {
 
 server.use(jsonServer.bodyParser)
 
+server.use(async (req, res, next) => {
+	await new Promise(res => {
+		setTimeout(res, 1000)
+	})
+	next()
+})
+
+server.use((req, res, next) => {
+	if (!req.headers.authorization) {
+		return res.status(403).json({ message: 'AUTH ERROR' })
+	}
+
+	next()
+})
+
 server.post('/login', (req, res) => {
 	const { id } = req.body
 
