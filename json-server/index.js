@@ -1,30 +1,45 @@
 import jsonServer from 'json-server'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const dbFilePath = path.resolve(__dirname, 'db.json')
+
 const server = jsonServer.create()
-const router = jsonServer.router('db.json')
+const router = jsonServer.router(dbFilePath)
 const middlewares = jsonServer.defaults()
 
-// Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares)
 
-// Add custom routes before JSON Server router
 server.get('/echo', (req, res) => {
 	res.jsonp(req.query)
 })
 
-// To handle POST, PUT and PATCH you need to use a body-parser
-// You can use the one used by JSON Server
 server.use(jsonServer.bodyParser)
-server.post('/login', (req, res, next) => {
-	const { username, password } = req.body
 
-	console.log('req', req)
-	console.log('res', res)
+server.post('/login', (req, res) => {
+	const { id } = req.body
 
-	return res.status(403).json(req.body)
+	let db
+	try {
+		db = JSON.parse(fs.readFileSync(dbFilePath, 'UTF-8'))
+	} catch (error) {
+		return res.status(500).json({ message: error.message })
+	}
+
+	const user = db.users.find(user => user.id === id)
+
+	if (!user) {
+		return res.status(404).json({ message: 'User not found' })
+	} else {
+		return res.jsonp(user)
+	}
 })
 
-// Use default router
 server.use(router)
+
 server.listen(3000, () => {
 	console.log('JSON Server is running')
 })
