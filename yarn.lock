@@ -2070,14 +2070,6 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/hoist-non-react-statics@^3.3.0":
-  version "3.3.5"
-  resolved "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.5.tgz"
-  integrity sha512-SbcrWzkKBw2cdwRTwQAswfpB9g9LJWfjtUeW/jvNwbhC8cpmmNYVePa+ncbUe0rGTQ7G3Ff6mYUN2VMfLVr+Sg==
-  dependencies:
-    "@types/react" "*"
-    hoist-non-react-statics "^3.3.0"
-
 "@types/http-errors@*":
   version "2.0.4"
   resolved "https://registry.npmjs.org/@types/http-errors/-/http-errors-2.0.4.tgz"
@@ -2180,19 +2172,6 @@
   dependencies:
     "@types/react" "*"
 
-<<<<<<< HEAD
-=======
-"@types/react-redux@^7.1.33":
-  version "7.1.33"
-  resolved "https://registry.npmjs.org/@types/react-redux/-/react-redux-7.1.33.tgz"
-  integrity sha512-NF8m5AjWCkert+fosDsN3hAlHzpjSiXlVy9EgQEmLoBhaNXbmyeGs/aj5dQzKuF+/q+S7JQagorGDW8pJ28Hmg==
-  dependencies:
-    "@types/hoist-non-react-statics" "^3.3.0"
-    "@types/react" "*"
-    hoist-non-react-statics "^3.3.0"
-    redux "^4.0.0"
-
->>>>>>> 8f99b078c86dce539634ed1663eda1fd9c7866cc
 "@types/react@*", "@types/react@^16.8.0 || ^17.0.0 || ^18.0.0", "@types/react@^18.0.0", "@types/react@^18.2.25", "@types/react@^18.3.3", "@types/react@>=16":
   version "18.3.3"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.3.3.tgz"
@@ -4124,13 +4103,6 @@ hast-util-to-string@^3.0.0:
   dependencies:
     "@types/hast" "^3.0.0"
 
-hoist-non-react-statics@^3.3.0:
-  version "3.3.2"
-  resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
-  integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
-  dependencies:
-    react-is "^16.7.0"
-
 html-encoding-sniffer@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/html-encoding-sniffer/-/html-encoding-sniffer-3.0.0.tgz"
@@ -5950,11 +5922,6 @@ react-is@^16.13.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-is@^16.7.0:
-  version "16.13.1"
-  resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
-  integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
 react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
@@ -6052,16 +6019,6 @@ redux-thunk@^3.1.0:
   resolved "https://registry.npmjs.org/redux-thunk/-/redux-thunk-3.1.0.tgz"
   integrity sha512-NW2r5T6ksUKXCabzhL9z+h206HQw/NJkcLm1GPImRQ8IzfXwRGqjVhKJGauHirT0DAuyy6hjdnMZaRoAcy0Klw==
 
-<<<<<<< HEAD
-=======
-redux@^4.0.0:
-  version "4.2.1"
-  resolved "https://registry.npmjs.org/redux/-/redux-4.2.1.tgz"
-  integrity sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==
-  dependencies:
-    "@babel/runtime" "^7.9.2"
-
->>>>>>> 8f99b078c86dce539634ed1663eda1fd9c7866cc
 redux@^5.0.0, redux@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/redux/-/redux-5.0.1.tgz"
