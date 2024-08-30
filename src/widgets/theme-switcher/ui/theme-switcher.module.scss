@@ -3,6 +3,7 @@ $cubic-bezier: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
 .toggleWrapper {
 	position: relative;
+	height: 30px;
 
 	input {
 		position: absolute;
@@ -15,7 +16,7 @@ $cubic-bezier: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 	display: inline-block;
 	position: relative;
 	width: 60px;
-	height: 30px;
+	height: 100%;
 	background-color: #83d8ff;
 	border-radius: 30px;
 	transition: background-color 200ms $cubic-bezier;
