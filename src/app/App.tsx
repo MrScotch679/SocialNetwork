@@ -7,7 +7,7 @@ export const App = () => {
 	const { theme } = useTheme()
 
 	return (
-		<div className={className('app', undefined, [theme])}>
+		<div id='app' className={className('app', undefined, [theme])}>
 			<AppRouter />
 		</div>
 	)
