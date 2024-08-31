@@ -1,0 +1,61 @@
+$input-border-color: #ccc;
+$input-border-radius: 4px;
+$input-padding: 12px;
+$input-font-size: 16px;
+$input-focus-color: #007bff;
+$input-hover-color: #007bff;
+$input-disabled-background: #f5f5f5;
+$input-disabled-border: #ddd;
+$input-placeholder-color: #999;
+$input-error-color: #e74c3c;
+$input-success-color: #2ecc71;
+
+.customInputWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.customInputLabel {
+	font-size: 14px;
+	font-weight: 600;
+	color: #333;
+}
+
+.customInput {
+	padding: $input-padding;
+	border: 2px solid $input-border-color;
+	border-radius: $input-border-radius;
+	font-size: $input-font-size;
+	outline: none;
+	transition:
+		border-color 0.3s ease,
+		box-shadow 0.3s ease;
+
+	&:focus {
+		border-color: $input-focus-color;
+		box-shadow: 0 0 5px rgba($input-focus-color, 0.5);
+	}
+
+	&::placeholder {
+		color: $input-placeholder-color;
+	}
+
+	&:hover {
+		border-color: $input-hover-color;
+	}
+
+	&:disabled {
+		background-color: $input-disabled-background;
+		border-color: $input-disabled-border;
+		cursor: not-allowed;
+	}
+
+	&.custom-input-error {
+		border-color: $input-error-color;
+	}
+
+	&.custom-input-success {
+		border-color: $input-success-color;
+	}
+}
