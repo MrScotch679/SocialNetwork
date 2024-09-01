@@ -26,25 +26,28 @@ server.use(async (req, res, next) => {
 	next()
 })
 
-server.use((req, res, next) => {
-	if (!req.headers.authorization) {
-		return res.status(403).json({ message: 'AUTH ERROR' })
-	}
+// server.use((req, res, next) => {
+// 	if (!req.headers.authorization) {
+// 		return res.status(403).json({ message: 'AUTH ERROR' })
+// 	}
 
-	next()
-})
+// 	next()
+// })
 
 server.post('/login', (req, res) => {
-	const { id } = req.body
+	const { username, password } = req.body
 
 	let db
+
 	try {
 		db = JSON.parse(fs.readFileSync(dbFilePath, 'UTF-8'))
 	} catch (error) {
 		return res.status(500).json({ message: error.message })
 	}
 
-	const user = db.users.find(user => user.id === id)
+	const user = db.users.find(
+		user => user.username === username && user.password === password
+	)
 
 	if (!user) {
 		return res.status(404).json({ message: 'User not found' })

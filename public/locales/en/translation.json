@@ -2,5 +2,6 @@
 	"Title": "Products",
 	"en": "Eng",
 	"ru": "Rus",
-	"Login": "Login"
+	"Login": "Login",
+	"Logout": "Logout"
 }
