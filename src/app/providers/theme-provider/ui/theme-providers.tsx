@@ -1,5 +1,5 @@
-import { THEME_LOCAL_STORAGE_KEY } from '@/shared/constants/theme'
 import { ThemeContext } from '@/app/providers/theme-provider/lib/theme-context'
+import { THEME_LOCAL_STORAGE_KEY } from '@/shared/constants/local-storage'
 import { Theme } from '@/shared/types/theme/theme.enum'
 
 import { FC, PropsWithChildren, useMemo, useState } from 'react'
