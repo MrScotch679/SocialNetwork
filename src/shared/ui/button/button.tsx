@@ -7,7 +7,7 @@ import {
 } from 'react'
 
 import styles from './button.module.scss'
-import { className } from '@/shared/lib/className/className'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { ButtonMode } from './button.types'
 
 interface ButtonProps
@@ -17,22 +17,10 @@ interface ButtonProps
 }
 
 export const Button: FC<ButtonProps> = memo(props => {
-	const {
-		children,
-		mode = ButtonMode.CLEAR,
-		className: additionalClassName,
-		...restProps
-	} = props
+	const { children, mode = ButtonMode.CLEAR, className, ...restProps } = props
 
 	const buttonClasses = useMemo(
-		() =>
-			className(
-				styles.button,
-				{
-					[additionalClassName as string]: !!additionalClassName,
-				},
-				[styles[mode]]
-			),
+		() => classNames(styles.button, {}, [styles[mode], className]),
 		[]
 	)
 

@@ -1,4 +1,4 @@
-import { className } from '@/shared/lib/className/className'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import './styles/index.scss'
 import { useTheme } from './providers/theme-provider'
 import { AppRouter } from './providers/router'
@@ -15,7 +15,7 @@ export const App = () => {
 	}, [])
 
 	return (
-		<div id='app' className={className('app', undefined, [theme])}>
+		<div id='app' className={classNames('app', undefined, [theme])}>
 			<AppRouter />
 		</div>
 	)

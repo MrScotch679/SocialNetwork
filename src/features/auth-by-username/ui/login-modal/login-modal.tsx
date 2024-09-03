@@ -1,6 +1,7 @@
 import { Modal } from '@/shared/ui/modal/modal'
-import { FC, memo } from 'react'
-import { LoginForm } from '../login-form/login-form'
+import { FC, memo, Suspense } from 'react'
+import { LoginForm } from '../login-form'
+import { Loader } from '@/shared/ui/loader'
 
 interface LoginModalProps {
 	isOpen: boolean
@@ -10,7 +11,9 @@ interface LoginModalProps {
 export const LoginModal: FC<LoginModalProps> = memo(props => {
 	return (
 		<Modal {...props}>
-			<LoginForm />
+			<Suspense fallback={<Loader />}>
+				<LoginForm />
+			</Suspense>
 		</Modal>
 	)
 })

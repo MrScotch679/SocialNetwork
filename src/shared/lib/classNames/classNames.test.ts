@@ -1,4 +1,4 @@
-import { className } from './className'
+import { className } from './classNames'
 
 describe('className', () => {
 	it('should return class name', () => {

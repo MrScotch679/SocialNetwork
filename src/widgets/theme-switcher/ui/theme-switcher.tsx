@@ -1,7 +1,7 @@
 import { useTheme } from '@/app/providers/theme-provider'
 import { FC, memo } from 'react'
 import styles from './theme-switcher.module.scss'
-import { className } from '@/shared/lib/className/className'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Theme } from '@/shared/types/theme/theme.enum'
 
 export const ThemeSwitcher: FC = memo(() => {
@@ -18,29 +18,35 @@ export const ThemeSwitcher: FC = memo(() => {
 			<label htmlFor='dn' className={styles.toggle}>
 				<span className={styles.toggleHandler}>
 					<span
-						className={className(styles.crater, undefined, [styles.craterOne])}
+						className={classNames(styles.crater, undefined, [styles.craterOne])}
 					/>
 					<span
-						className={className(styles.crater, undefined, [styles.craterTwo])}
+						className={classNames(styles.crater, undefined, [styles.craterTwo])}
 					/>
 					<span
-						className={className(styles.crater, undefined, [
+						className={classNames(styles.crater, undefined, [
 							styles.craterThree,
 						])}
 					/>
 				</span>
-				<span className={className(styles.star, undefined, [styles.starOne])} />
-				<span className={className(styles.star, undefined, [styles.starTwo])} />
 				<span
-					className={className(styles.star, undefined, [styles.starThree])}
+					className={classNames(styles.star, undefined, [styles.starOne])}
 				/>
 				<span
-					className={className(styles.star, undefined, [styles.starFour])}
+					className={classNames(styles.star, undefined, [styles.starTwo])}
 				/>
 				<span
-					className={className(styles.star, undefined, [styles.starFive])}
+					className={classNames(styles.star, undefined, [styles.starThree])}
 				/>
-				<span className={className(styles.star, undefined, [styles.starSix])} />
+				<span
+					className={classNames(styles.star, undefined, [styles.starFour])}
+				/>
+				<span
+					className={classNames(styles.star, undefined, [styles.starFive])}
+				/>
+				<span
+					className={classNames(styles.star, undefined, [styles.starSix])}
+				/>
 			</label>
 		</div>
 	)

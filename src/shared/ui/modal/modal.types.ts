@@ -8,4 +8,5 @@ export enum ModalState {
 export interface ModalProps extends PropsWithChildren {
 	isOpen: boolean
 	onClose: () => void
+	className?: string
 }

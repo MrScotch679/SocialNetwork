@@ -7,9 +7,7 @@ import { loginActions } from '../../model/slice/login.slice'
 import { getLoginState } from '../../model/selectors/select-login-state/get-login-state'
 import { loginByUsername } from '../../model/services/login-by-username/login-by-username'
 
-interface LoginFormProps {}
-
-export const LoginForm: FC<LoginFormProps> = memo(() => {
+const LoginForm: FC = memo(() => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 	const { username, password } = useAppSelector(getLoginState)
@@ -40,3 +38,5 @@ export const LoginForm: FC<LoginFormProps> = memo(() => {
 		</div>
 	)
 })
+
+export default LoginForm

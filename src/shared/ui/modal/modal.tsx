@@ -1,15 +1,15 @@
 import { FC, memo } from 'react'
 
 import styles from './modal.module.scss'
-import { className } from '@/shared/lib/className/className'
 import { Button } from '@/shared/ui/button'
 import { ButtonMode } from '../button/button.types'
 import { ModalProps } from './modal.types'
 import { Portal } from '@/shared/ui/portal'
 import { useModal } from './modal.hooks'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 export const Modal: FC<ModalProps> = memo(props => {
-	const { isOpen, onClose, children } = props
+	const { isOpen, onClose, children, className } = props
 
 	if (!isOpen) {
 		return null
@@ -22,8 +22,9 @@ export const Modal: FC<ModalProps> = memo(props => {
 		<Portal>
 			<div className={styles.modalOverlay} onClick={handleClickOverlay}>
 				<div
-					className={className(styles.modal, undefined, [
+					className={classNames(styles.modal, {}, [
 						styles[modalAnamation],
+						className,
 					])}
 					onAnimationEnd={onAnimationEnd}
 				>

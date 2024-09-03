@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-export const className = (
+export const classNames = (
 	cls: string,
 	mods?: Record<string, boolean | string>,
-	additional?: string[]
+	additional?: any[]
 ) => {
 	let classes = [cls]
 
@@ -15,7 +16,11 @@ export const className = (
 	}
 
 	if (additional) {
-		classes = classes.concat(additional)
+		for (const add of additional) {
+			if (add) {
+				classes.push(add)
+			}
+		}
 	}
 
 	return classes.join(' ')
