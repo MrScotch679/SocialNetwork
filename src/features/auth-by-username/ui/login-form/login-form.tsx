@@ -1,13 +1,15 @@
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux-hooks'
 import { Button } from '@/shared/ui/button'
 import { Input } from '@/shared/ui/input/input'
-import { ChangeEvent, FC, memo, useCallback } from 'react'
+import { ChangeEvent, FC, memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
-import { loginActions } from '../../model/slice/login.slice'
+import { loginActions, loginReducer } from '../../model/slice/login.slice'
 import { getLoginState } from '../../model/selectors/select-login-state/get-login-state'
 import { loginByUsername } from '../../model/services/login-by-username/login-by-username'
+import { useAppStore } from '@/shared/hooks/redux-hooks/redux-hooks'
 
 const LoginForm: FC = memo(() => {
+	const store = useAppStore()
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 	const { username, password } = useAppSelector(getLoginState)
@@ -29,6 +31,14 @@ const LoginForm: FC = memo(() => {
 	const onLogin = useCallback(() => {
 		dispatch(loginByUsername({ username, password }))
 	}, [dispatch, username, password])
+
+	useEffect(() => {
+		store.reducerManager.add('login', loginReducer)
+
+		return () => {
+			store.reducerManager.remove('login')
+		}
+	}, [])
 
 	return (
 		<div>

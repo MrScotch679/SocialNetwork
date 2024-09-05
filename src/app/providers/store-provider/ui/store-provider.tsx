@@ -1,4 +1,4 @@
-import { reduxStore } from '@/shared/config/redux-store'
+import { reduxStore } from '@/shared/config/redux/redux-store'
 import { FC, PropsWithChildren } from 'react'
 import { Provider } from 'react-redux'
 
