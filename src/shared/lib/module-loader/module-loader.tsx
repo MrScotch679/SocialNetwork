@@ -7,25 +7,25 @@ import { Reducer } from '@reduxjs/toolkit'
 import { FC, memo, PropsWithChildren, useEffect } from 'react'
 
 interface ModuleLoaderProps extends PropsWithChildren {
-	key: RootStateKey
+	reducerKey: RootStateKey
 	reducer: Reducer
 }
 
 export const ModuleLoader: FC<ModuleLoaderProps> = memo(props => {
-	const { key, reducer, children } = props
+	const { reducerKey, reducer, children } = props
 
 	const store = useAppStore()
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		store.reducerManager.add(key, reducer)
-		dispatch({ type: `@${key} INIT` })
+		store.reducerManager.add(reducerKey, reducer)
+		dispatch({ type: `@${reducerKey} INIT` })
 
 		return () => {
-			store.reducerManager.remove(key)
-			dispatch({ type: `@${key} DESTROY` })
+			store.reducerManager.remove(reducerKey)
+			dispatch({ type: `@${reducerKey} DESTROY` })
 		}
-	})
+	}, [])
 
 	return <>{children}</>
 })

@@ -1,13 +1,13 @@
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux-hooks'
 import { Button } from '@/shared/ui/button'
 import { Input } from '@/shared/ui/input/input'
-import { ChangeEvent, FC, memo, useCallback, useEffect } from 'react'
+import { ChangeEvent, FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { loginActions, loginReducer } from '../../model/slice/login.slice'
 import { loginByUsername } from '../../model/services/login-by-username/login-by-username'
 import { getUsername } from '../../model/selectors/get-username/get-username'
 import { getPassword } from '../../model/selectors/get-password/get-password'
-import { useAppStore } from '@/shared/hooks/redux-hooks/redux-hooks'
+import { ModuleLoader } from '@/shared/lib/module-loader'
 
 const LoginForm: FC = memo(() => {
 	const { t } = useTranslation()
@@ -15,7 +15,6 @@ const LoginForm: FC = memo(() => {
 
 	const username = useAppSelector(getUsername)
 	const password = useAppSelector(getPassword)
-	const store = useAppStore()
 
 	const onChangeUsername = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
@@ -35,22 +34,12 @@ const LoginForm: FC = memo(() => {
 		dispatch(loginByUsername({ username, password }))
 	}, [dispatch, username, password])
 
-	useEffect(() => {
-		store.reducerManager.add('login', loginReducer)
-		store.dispatch({ type: '@login init' })
-
-		return () => {
-			store.reducerManager.remove('login')
-			store.dispatch({ type: '@login remove' })
-		}
-	}, [])
-
 	return (
-		<div>
+		<ModuleLoader reducerKey='login' reducer={loginReducer}>
 			<Input value={username} onChange={onChangeUsername} />
 			<Input value={password} onChange={onChangePassword} />
 			<Button onClick={onLogin}>{t('Login')}</Button>
-		</div>
+		</ModuleLoader>
 	)
 })
 
