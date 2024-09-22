@@ -8,6 +8,6 @@ export const LoginForm = lazy(
 	() =>
 		new Promise(resolve => {
 			// @ts-ignore
-			setTimeout(() => resolve(import('./login-form')), 10000)
+			setTimeout(() => resolve(import('./login-form')), 1000)
 		})
 )

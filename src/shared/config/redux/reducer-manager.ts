@@ -1,51 +1,56 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Action, combineReducers, Reducer } from '@reduxjs/toolkit'
-import { RootState, RootStateKeys } from './redux-store'
+import {
+	Reducers,
+	RootState,
+	RootStateKey,
+	StaticReducers,
+} from './redux-store.types'
 
-export function createReducerManager(initialReducers: RootState) {
-	const reducers = { ...initialReducers }
+export const createReducerManager = (initialReducers: StaticReducers) => {
+	const reducers: Partial<Reducers> = {
+		...initialReducers,
+	}
 
-	let combinedReducer = combineReducers(reducers)
+	let combinedReducer = combineReducers(reducers as Reducers)
 
-	let keysToRemove: RootStateKeys[] = []
+	let keysToRemove: RootStateKey[] = []
 
 	return {
 		getReducerMap: () => reducers,
 
-		reduce: (state: RootState, action: Action) => {
+		reduce: (state: Partial<RootState> = {}, action: Action) => {
 			if (keysToRemove.length > 0) {
 				state = { ...state }
 
-				// @ts-ignore
-				keysToRemove.forEach(key => delete state[key])
-
+				for (const key of keysToRemove) {
+					delete state[key]
+				}
 				keysToRemove = []
 			}
-			// @ts-ignore
+
 			return combinedReducer(state, action)
 		},
 
-		add: (key: RootStateKeys, reducer: Reducer) => {
+		add: (key: RootStateKey, reducer: Reducer) => {
 			if (!key || reducers[key]) {
 				return
 			}
-			// @ts-ignore
+
 			reducers[key] = reducer
 
-			combinedReducer = combineReducers(reducers)
+			combinedReducer = combineReducers(reducers as Reducers)
 		},
 
-		remove: (key: RootStateKeys) => {
+		remove: (key: RootStateKey) => {
 			if (!key || !reducers[key]) {
 				return
 			}
 
-			// @ts-ignore
 			delete reducers[key]
 
 			keysToRemove.push(key)
 
-			combinedReducer = combineReducers(reducers)
+			combinedReducer = combineReducers(reducers as Reducers)
 		},
 	}
 }

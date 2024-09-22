@@ -4,15 +4,18 @@ import { Input } from '@/shared/ui/input/input'
 import { ChangeEvent, FC, memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { loginActions, loginReducer } from '../../model/slice/login.slice'
-import { getLoginState } from '../../model/selectors/select-login-state/get-login-state'
 import { loginByUsername } from '../../model/services/login-by-username/login-by-username'
+import { getUsername } from '../../model/selectors/get-username/get-username'
+import { getPassword } from '../../model/selectors/get-password/get-password'
 import { useAppStore } from '@/shared/hooks/redux-hooks/redux-hooks'
 
 const LoginForm: FC = memo(() => {
-	const store = useAppStore()
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
-	const { username, password } = useAppSelector(getLoginState)
+
+	const username = useAppSelector(getUsername)
+	const password = useAppSelector(getPassword)
+	const store = useAppStore()
 
 	const onChangeUsername = useCallback(
 		(event: ChangeEvent<HTMLInputElement>) => {
@@ -34,9 +37,11 @@ const LoginForm: FC = memo(() => {
 
 	useEffect(() => {
 		store.reducerManager.add('login', loginReducer)
+		store.dispatch({ type: '@login init' })
 
 		return () => {
 			store.reducerManager.remove('login')
+			store.dispatch({ type: '@login remove' })
 		}
 	}, [])
 

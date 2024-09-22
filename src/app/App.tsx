@@ -15,8 +15,9 @@ export const App = () => {
 	}, [])
 
 	return (
-		<div id='app' className={classNames('app', undefined, [theme])}>
+		<div className={classNames('app', undefined, [theme])}>
 			<AppRouter />
+			<div id='modal' />
 		</div>
 	)
 }

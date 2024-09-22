@@ -6,7 +6,7 @@ interface PortalProps extends PropsWithChildren {
 }
 
 export const Portal: FC<PortalProps> = memo(props => {
-	const { children, portalElement = document?.getElementById('app') } = props
+	const { children, portalElement = document?.getElementById('modal') } = props
 
 	return createPortal(children, portalElement as HTMLElement)
 })
