@@ -4,4 +4,5 @@ export const routePath: Record<AppRoute, string> = {
 	[AppRoute.ROOT]: '/',
 	[AppRoute.MAIN]: '/main',
 	[AppRoute.ABOUT]: '/about',
+	[AppRoute.PROFILE]: '/profile',
 }

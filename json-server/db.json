@@ -5,5 +5,15 @@
 			"username": "admin",
 			"password": "admin"
 		}
-	]
+	],
+	"profile": {
+		"firstName": "John",
+		"lastName": "Doe",
+		"age": 23,
+		"currency": "USD",
+		"country": "USA",
+		"city": "New York",
+		"username": "admin",
+		"avatar": ""
+	}
 }
