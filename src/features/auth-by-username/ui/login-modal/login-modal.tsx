@@ -8,7 +8,7 @@ export const LoginModal: FC<LoginModalProps> = memo(props => {
 	return (
 		<Modal {...props}>
 			<Suspense fallback={<Loader />}>
-				<LoginForm />
+				<LoginForm handleCloseModal={props.onClose} />
 			</Suspense>
 		</Modal>
 	)

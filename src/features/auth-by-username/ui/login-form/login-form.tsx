@@ -8,8 +8,9 @@ import { loginByUsername } from '../../model/services/login-by-username/login-by
 import { getUsername } from '../../model/selectors/get-username/get-username'
 import { getPassword } from '../../model/selectors/get-password/get-password'
 import { ModuleLoader } from '@/shared/lib/module-loader'
+import { LoginFormProps } from './login-form.types'
 
-const LoginForm: FC = memo(() => {
+const LoginForm: FC<LoginFormProps> = memo(({ handleCloseModal }) => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 
@@ -30,8 +31,12 @@ const LoginForm: FC = memo(() => {
 		[dispatch]
 	)
 
-	const onLogin = useCallback(() => {
-		dispatch(loginByUsername({ username, password }))
+	const onLogin = useCallback(async () => {
+		const result = await dispatch(loginByUsername({ username, password }))
+
+		if (result.meta?.requestStatus === 'fulfilled') {
+			handleCloseModal()
+		}
 	}, [dispatch, username, password])
 
 	return (
