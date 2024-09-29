@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Profile, ProfileSchema } from '../types/profile'
-import { USER_LOCAL_STORAGE_KEY } from '@/shared/constants/local-storage'
+import { getProfileData } from '../services/get-profile-data/get-profile-data'
 
 const initialState: ProfileSchema = {
 	readonly: true,
@@ -28,6 +28,21 @@ export const profileSlice = createSlice({
 		// 	state.authData = undefined
 		// 	localStorage.removeItem(USER_LOCAL_STORAGE_KEY)
 		// },
+	},
+	extraReducers: builder => {
+		builder
+			.addCase(getProfileData.pending, state => {
+				state.error = undefined
+				state.isLoading = true
+			})
+			.addCase(getProfileData.fulfilled, (state, action) => {
+				state.isLoading = false
+				state.data = action.payload
+			})
+			.addCase(getProfileData.rejected, (state, action) => {
+				state.isLoading = false
+				state.error = action.payload
+			})
 	},
 })
 
