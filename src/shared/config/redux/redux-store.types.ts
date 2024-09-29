@@ -21,7 +21,7 @@ export interface AppStore extends EnhancedStore<RootState> {
 	reducerManager: ReducerManager
 }
 
-export type AppDispatch = ThunkDispatch<RootState, undefined, Action>
+export type AppDispatch = ThunkDispatch<RootState, ThinkExtraArgs, Action>
 
 export interface ThinkExtraArgs {
 	api: AxiosInstance
@@ -30,5 +30,4 @@ export interface ThinkExtraArgs {
 export interface ThunkConfig<T> {
 	rejectValue: T
 	extra: ThinkExtraArgs
-	state: RootState
 }
