@@ -1,7 +1,7 @@
 import { User } from '@/entities/user'
 import { userActions } from '@/entities/user/model/slice/user-slice'
+import { ThunkConfig } from '@/shared/config/redux/redux-store.types'
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 
 interface loginByUsernameProps {
 	username: string
@@ -11,10 +11,10 @@ interface loginByUsernameProps {
 export const loginByUsername = createAsyncThunk<
 	User,
 	loginByUsernameProps,
-	{ rejectValue: string }
+	ThunkConfig<string>
 >('login/loginByUserName', async (userData, thunkAPI) => {
 	try {
-		const response = await axios.post('http://localhost:3000/login', userData)
+		const response = await thunkAPI.extra.api.post('/login', userData)
 		const responseData = response.data
 
 		if (!responseData) {
