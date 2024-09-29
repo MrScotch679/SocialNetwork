@@ -12,6 +12,7 @@ import { LoginFormProps } from './login-form.types'
 
 const LoginForm: FC<LoginFormProps> = memo(({ handleCloseModal }) => {
 	const { t } = useTranslation()
+	const { t: loginT } = useTranslation('login')
 	const dispatch = useAppDispatch()
 
 	const username = useAppSelector(getUsername)
@@ -41,8 +42,16 @@ const LoginForm: FC<LoginFormProps> = memo(({ handleCloseModal }) => {
 
 	return (
 		<ModuleLoader reducerKey='login' reducer={loginReducer}>
-			<Input value={username} onChange={onChangeUsername} />
-			<Input value={password} onChange={onChangePassword} />
+			<Input
+				label={loginT('Enter your email')}
+				value={username}
+				onChange={onChangeUsername}
+			/>
+			<Input
+				label={loginT('Enter your password')}
+				value={password}
+				onChange={onChangePassword}
+			/>
 			<Button onClick={onLogin}>{t('Login')}</Button>
 		</ModuleLoader>
 	)
