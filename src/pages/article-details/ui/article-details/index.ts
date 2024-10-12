@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { lazy } from 'react'
 
-export const Profile = lazy(
+export const ArticleDetails = lazy(
 	() =>
 		new Promise(resolve => {
 			// @ts-ignore

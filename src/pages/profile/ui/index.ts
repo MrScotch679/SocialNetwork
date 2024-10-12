@@ -2,7 +2,6 @@
 import { lazy } from 'react'
 
 // export const LoginForm = lazy(() => import('./login-form'))
-//  lazy(() => import())
 
 export const Profile = lazy(
 	() =>

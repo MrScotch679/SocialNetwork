@@ -6,6 +6,8 @@ import { About } from '@/pages/about'
 import { Layout } from '@/widgets/layout'
 import { Profile } from '@/pages/profile'
 import { ProtectedRoutes } from '@/app/providers/router/ui/protected-routes/protected-routes'
+import { ArticleDetails } from '@/pages/article-details'
+import { Articles } from '@/pages/articles'
 
 export const routeConfig = createBrowserRouter([
 	{
@@ -32,6 +34,18 @@ export const routeConfig = createBrowserRouter([
 						path: AppRoute.PROFILE,
 						element: <Profile />,
 						errorElement: <div>ERROR PROFILE</div>,
+					},
+
+					{
+						path: AppRoute.ARTICLE_DETAILS,
+						element: <ArticleDetails />,
+						errorElement: <div>ERROR ARTICLE DETAILS</div>,
+					},
+
+					{
+						path: AppRoute.ARTICLES,
+						element: <Articles />,
+						errorElement: <div>ERROR ARTICLE DETAILS</div>,
 					},
 				],
 			},
