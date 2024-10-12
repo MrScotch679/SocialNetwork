@@ -30,4 +30,5 @@ export interface ThinkExtraArgs {
 export interface ThunkConfig<T> {
 	rejectValue: T
 	extra: ThinkExtraArgs
+	state: RootState
 }
