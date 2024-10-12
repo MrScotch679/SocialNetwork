@@ -1,19 +1,19 @@
 {
-	"users": [
-		{
-			"id": 1,
-			"username": "admin",
-			"password": "admin"
-		}
-	],
-	"profile": {
-		"firstName": "John",
-		"lastName": "Doe",
-		"age": 23,
-		"currency": "USD",
-		"country": "USA",
-		"city": "New York",
-		"username": "admin",
-		"avatar": ""
-	}
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    }
+  ],
+  "profile": {
+    "firstName": "John1323123",
+    "lastName": "Doe123",
+    "age": 133,
+    "currency": "USDD",
+    "country": "USAA",
+    "city": "New York2",
+    "username": "admin",
+    "avatar": "https://i.pinimg.com/736x/7f/af/1c/7faf1c8ecb2360c2a8f833108d4b5311.jpg"
+  }
 }
