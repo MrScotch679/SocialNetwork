@@ -11,11 +11,13 @@ export const Layout = memo(() => {
 		<div className={styles.layout}>
 			<Sidebar />
 
-			<div className={styles.layoutContent}>
+			<div className={styles.contentWrapper}>
 				<Navbar />
 
 				<Suspense fallback={<PageLoader />}>
-					<Outlet />
+					<div className={styles.content}>
+						<Outlet />
+					</div>
 				</Suspense>
 			</div>
 		</div>
