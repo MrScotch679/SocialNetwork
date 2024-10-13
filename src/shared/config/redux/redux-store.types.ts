@@ -5,6 +5,7 @@ import { staticReducers } from './redux-store'
 import { createReducerManager } from './reducer-manager'
 import { ProfileSchema } from '@/entities/profile'
 import { AxiosInstance } from 'axios'
+import { ArticleSchema } from '@/entities/article'
 
 export type StaticReducers = typeof staticReducers
 export type ReducerManager = ReturnType<typeof createReducerManager>
@@ -12,9 +13,12 @@ export type Reducers = Record<RootStateKey, Reducer>
 
 export interface RootState {
 	user: UserSchema
+
 	login?: LoginSchema
 	profile?: ProfileSchema
+	article?: ArticleSchema
 }
+
 export type RootStateKey = keyof RootState
 
 export interface AppStore extends EnhancedStore<RootState> {

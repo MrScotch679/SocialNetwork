@@ -28,24 +28,24 @@ export const routeConfig = createBrowserRouter([
 			},
 
 			{
+				path: `${AppRoute.ARTICLE_DETAILS}:id`,
+				element: <ArticleDetails />,
+				errorElement: <div>ERROR ARTICLE DETAILS</div>,
+			},
+
+			{
+				path: AppRoute.ARTICLES,
+				element: <Articles />,
+				errorElement: <div>ERROR ARTICLE DETAILS</div>,
+			},
+
+			{
 				element: <ProtectedRoutes />,
 				children: [
 					{
 						path: AppRoute.PROFILE,
 						element: <Profile />,
 						errorElement: <div>ERROR PROFILE</div>,
-					},
-
-					{
-						path: AppRoute.ARTICLE_DETAILS,
-						element: <ArticleDetails />,
-						errorElement: <div>ERROR ARTICLE DETAILS</div>,
-					},
-
-					{
-						path: AppRoute.ARTICLES,
-						element: <Articles />,
-						errorElement: <div>ERROR ARTICLE DETAILS</div>,
 					},
 				],
 			},
