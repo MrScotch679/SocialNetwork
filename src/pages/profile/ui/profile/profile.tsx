@@ -12,7 +12,7 @@ import {
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux-hooks'
 import { ModuleLoader } from '@/shared/lib/module-loader'
 import { ChangeEvent, memo, useCallback, useEffect } from 'react'
-import { Header } from './header'
+import { Header } from '../header'
 import { Currency } from '@/shared/types/currency'
 import { Сities } from '@/shared/types/cities'
 
