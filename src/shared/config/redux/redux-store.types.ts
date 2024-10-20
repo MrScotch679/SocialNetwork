@@ -6,6 +6,7 @@ import { createReducerManager } from './reducer-manager'
 import { ProfileSchema } from '@/entities/profile'
 import { AxiosInstance } from 'axios'
 import { ArticleSchema } from '@/entities/article'
+import { ArticlesCommentsSchema } from '@/pages/article-details'
 
 export type StaticReducers = typeof staticReducers
 export type ReducerManager = ReturnType<typeof createReducerManager>
@@ -17,6 +18,7 @@ export interface RootState {
 	login?: LoginSchema
 	profile?: ProfileSchema
 	article?: ArticleSchema
+	articleComments?: ArticlesCommentsSchema
 }
 
 export type RootStateKey = keyof RootState
