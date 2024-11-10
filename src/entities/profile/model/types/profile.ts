@@ -3,6 +3,7 @@ import { Сities } from '@/shared/types/cities'
 import { ValidationError } from './validation-error'
 
 export interface Profile {
+	id: string
 	firstName?: string
 	lastName?: string
 	age?: number

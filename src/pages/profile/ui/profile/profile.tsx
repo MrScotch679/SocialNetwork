@@ -15,9 +15,12 @@ import { ChangeEvent, memo, useCallback, useEffect } from 'react'
 import { Header } from '../header'
 import { Currency } from '@/shared/types/currency'
 import { Сities } from '@/shared/types/cities'
+import { useParams } from 'react-router-dom'
 
 const Profile = memo(() => {
 	const dispatch = useAppDispatch()
+
+	const { id } = useParams()
 
 	const profileForm = useAppSelector(getForm)
 	const isLoading = useAppSelector(getProfileLoading)
@@ -81,7 +84,9 @@ const Profile = memo(() => {
 	// avatar
 
 	useEffect(() => {
-		dispatch(getProfileData())
+		if (id) {
+			dispatch(getProfileData(id))
+		}
 	}, [])
 
 	return (

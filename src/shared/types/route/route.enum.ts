@@ -4,7 +4,7 @@ export enum AppRoute {
 	MAIN = '/main',
 	ABOUT = '/about',
 
-	PROFILE = '/profile',
+	PROFILE = '/profile/',
 
 	ARTICLES = '/articles',
 	ARTICLE_DETAILS = '/articles/',

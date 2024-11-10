@@ -40,14 +40,14 @@ export const routeConfig = createBrowserRouter([
 			},
 
 			{
+				path: `${AppRoute.PROFILE}:id`,
+				element: <Profile />,
+				errorElement: <div>ERROR PROFILE</div>,
+			},
+
+			{
 				element: <ProtectedRoutes />,
-				children: [
-					{
-						path: AppRoute.PROFILE,
-						element: <Profile />,
-						errorElement: <div>ERROR PROFILE</div>,
-					},
-				],
+				children: [],
 			},
 		],
 	},

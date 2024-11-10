@@ -1,7 +1,7 @@
 import { Article } from '@/entities/article'
 import { CommentsList } from '@/entities/comment'
 import { ModuleLoader } from '@/shared/lib/module-loader'
-import { memo, useEffect } from 'react'
+import { memo, useCallback, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import {
 	articlesCommentsReducer,
@@ -11,6 +11,8 @@ import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux-hooks'
 import { getArticleCommentsLoading } from '../../model/selectors/get-article-comments-loading/get-article-comments-loading'
 import { getArticleCommentsError } from '../../model/selectors/get-article-comments-error/get-article-comments-error'
 import { getCommentsByActicleId } from '../../model/services/get-comments-by-acticle-id/get-comments-by-acticle-id'
+import { CommentForm } from '@/features/add-comment'
+import { sendComment } from '../../model/services/send-comment/send-comment'
 
 const ArticleDetails = memo(() => {
 	const { id } = useParams()
@@ -20,6 +22,13 @@ const ArticleDetails = memo(() => {
 	const comments = useAppSelector(getArticleComments.selectAll)
 	const commentsIsLoading = useAppSelector(getArticleCommentsLoading)
 	const commentError = useAppSelector(getArticleCommentsError)
+
+	const onSendComment = useCallback(
+		(text: string) => {
+			dispatch(sendComment(text))
+		},
+		[dispatch]
+	)
 
 	useEffect(() => {
 		if (id) {
@@ -32,14 +41,21 @@ const ArticleDetails = memo(() => {
 			reducerKey='articleComments'
 			reducer={articlesCommentsReducer}
 		>
-			<div>
-				{id ? <Article articleId={id} /> : 'Not found'}
-				<CommentsList
-					isLoading={commentsIsLoading}
-					error={commentError}
-					comments={comments}
-				/>
-			</div>
+			{id ? (
+				<div>
+					<Article articleId={id} />
+
+					<CommentForm onSendComment={onSendComment} />
+
+					<CommentsList
+						isLoading={commentsIsLoading}
+						error={commentError}
+						comments={comments}
+					/>
+				</div>
+			) : (
+				'Not found'
+			)}
 		</ModuleLoader>
 	)
 })
