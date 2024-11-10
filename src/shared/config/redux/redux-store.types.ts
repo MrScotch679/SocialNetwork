@@ -8,6 +8,7 @@ import { AxiosInstance } from 'axios'
 import { ArticleSchema } from '@/entities/article'
 import { ArticlesCommentsSchema } from '@/pages/article-details'
 import { CommentFormSchema } from '@/features/add-comment'
+import { ArticlePageSchema } from '@/pages/articles'
 
 export type StaticReducers = typeof staticReducers
 export type ReducerManager = ReturnType<typeof createReducerManager>
@@ -21,6 +22,7 @@ export interface RootState {
 	article?: ArticleSchema
 	articleComments?: ArticlesCommentsSchema
 	commentForm?: CommentFormSchema
+	articlesPage?: ArticlePageSchema
 }
 
 export type RootStateKey = keyof RootState
